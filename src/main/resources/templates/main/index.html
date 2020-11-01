@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="layouts::header"></head>
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+<div class="container" >
+    <h3>Show all the projects & employee here in a card format</h3>
+</div>
+
+</body>
+<div th:replace="layouts :: bootstrap-scripts"></div>
+<body>
+    <div class="container">
+        <h4>Current Projects</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="project : ${projects}">
+                    <td th:text="${project.name}">name</td>
+                    <td th:text="${project.description}">description</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="employee : ${employees}">
+                    <td th:text="${employee.firstName}">First name</td>
+                    <td th:text="${employee.lastName}">Last name</td>
+                    <td th:text="${employee.email}">Email</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head th:replace="layouts :: header"></head>
+<nav th:replace="layouts :: navbar"></nav>
+<div class="container">
+    <body>
+        <form action="/projects/addProject" method="post" th:object="${projectDto}">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name"
+                   aria-describedby="emailHelp"
+                   placeholder="Enter project name"
+                   th:field="${projectDto.name}">
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <select th:field="${projectDto.stage}" class="form-group">
+                    <option th:value="NOTSTARTED">Not started</option>
+                    <option th:value="INPROGRESS">In Progress</option>
+                    <option th:value="COMPLETED">Completed</option>
+                    <option th:value="CANCELLED">Cancelled</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <input type="text" placeholder="Project Description" th:field="${projectDto.description}">
+            </div>
+            <div class="col-3">
+                <label for="dateCreated">Date</label>
+                <input type="date" id="dateCreated" name="dateCreate" th:field="${projectDto.createdOn}">
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    </body>
+    <div th:replace="layouts :: bootstrap-scripts"></div>
+</div>
+<div th:replace="layouts :: bootstrap-scripts"></div>
+</html>

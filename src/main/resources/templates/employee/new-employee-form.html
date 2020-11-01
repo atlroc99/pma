@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head th:replace="layouts :: header"></head>
+<body>
+    <nav th:replace="layouts :: navbar"></nav>
+    <div class="container">
+        <h4>Add a new Team member</h4>
+        <form action="/employees/add" method="post" th:object="${employeeDto}">
+         <div class="row">
+             <div class="form-group col-4">
+                 <label for="fName">First name</label>
+                 <input id="fName" type="text" th:field="${employeeDto.firstName}" placeholder="First name">
+             </div>
+             <div class="form-group col-4">
+                 <label for="lName">Last name</label>
+                 <input id="lName" type="text" th:field="${employeeDto.lastName}" placeholder="Last name">
+             </div>
+             <div class="form-group col-4">
+                 <label for="email">Email</label>
+                 <input id="email" type="email" th:field="${employeeDto.email}" placeholder="xxxxxxxx@email.com">
+             </div>
+             <div>
+                 <input type="submit" value="Submit" class="btn btn-primary btn-md md-3">
+             </div>
+         </div>
+        </form>
+    </div>
+</body>
+<div th:replace="layouts :: bootstrap-scripts"></div>
+</html>
